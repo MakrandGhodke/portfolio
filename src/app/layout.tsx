@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://makrandghodke.vercel.app"),
   title: "Makrand Ghodke | Machine Learning & AI Engineer",
   description:
     "M.Sc. ICE student at TU Darmstadt building machine learning systems that work outside the notebook. Computer vision, vector search, and full-stack engineering.",
@@ -61,6 +62,33 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Makrand Ghodke",
+  jobTitle: "Machine Learning & AI Engineer",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "TU Darmstadt",
+  },
+  url: "https://makrandghodke.vercel.app",
+  sameAs: [
+    "https://github.com/MakrandGhodke",
+    "https://linkedin.com/in/makrand-ghodke",
+  ],
+  knowsAbout: [
+    "Machine Learning",
+    "Computer Vision",
+    "CLIP",
+    "FAISS",
+    "Vector Embeddings",
+    "PyTorch",
+    "FastAPI",
+    "Next.js",
+    "PostgreSQL",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,6 +101,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-background text-text font-sans antialiased selection:bg-accent/20 selection:text-accent">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
