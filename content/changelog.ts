@@ -10,6 +10,16 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    id: "dg-05",
+    date: "2026-10-01",
+    project: "DigiGuide",
+    projectSlug: "digiguide",
+    title: "Docker containerization on Render & 38-test pytest CI suite",
+    summary:
+      "Containerized FastAPI + CLIP backend with pre-cached model weights to prevent OOM on Render. Wrote 38 mocked pytest tests covering security regressions (path traversal, invalid upload 500s) and set up automated GitHub Actions CI.",
+    tags: ["Docker", "Render", "pytest", "CI/CD", "FastAPI"],
+  },
+  {
     id: "dg-04",
     date: "2026-03-28",
     project: "DigiGuide",
