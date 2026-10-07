@@ -6,8 +6,10 @@
   --background: #F8FAFC;
   --surface: #FFFFFF;
   --surface-raised: #F1F5F9;
+  --surface-glass: rgba(255, 255, 255, 0.75);
   --border: #E2E8F0;
   --border-subtle: #EDF2F7;
+  --border-glow: rgba(8, 145, 178, 0.3);
   --text: #0F172A;
   --text-muted: #64748B;
   --accent: #0891B2;
@@ -20,8 +22,10 @@
   --background: #0B0D12;
   --surface: #12151C;
   --surface-raised: #181C26;
+  --surface-glass: rgba(18, 21, 28, 0.75);
   --border: #232734;
-  --border-subtle: #1A1E29;
+  --border-subtle: #191D28;
+  --border-glow: rgba(34, 211, 238, 0.25);
   --text: #E6E8EE;
   --text-muted: #8A91A5;
   --accent: #22D3EE;
@@ -34,8 +38,10 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
+  --color-surface-glass: var(--surface-glass);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
+  --color-border-glow: var(--border-glow);
   --color-text: var(--text);
   --color-muted: var(--text-muted);
   --color-accent: var(--accent);
@@ -49,6 +55,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--text);
@@ -57,44 +67,90 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Background grid utility */
+/* Ambient engineering grid background with smooth radial mask */
 .bg-tech-grid {
-  background-size: 32px 32px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(138, 145, 165, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(138, 145, 165, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(138, 145, 165, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 145, 165, 0.08) 1px, transparent 1px);
 }
 
 .dark .bg-tech-grid {
-  background-size: 32px 32px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(35, 39, 52, 0.45) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(35, 39, 52, 0.45) 1px, transparent 1px);
+    linear-gradient(to right, rgba(35, 39, 52, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(35, 39, 52, 0.5) 1px, transparent 1px);
 }
 
-/* Glow gradient utilities */
-.glow-accent {
-  box-shadow: 0 0 25px -5px rgba(34, 211, 238, 0.25);
+.grid-mask-fade {
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 10%, #000 45%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 10%, #000 45%, transparent 95%);
 }
 
-.glow-card:hover {
-  box-shadow: 0 8px 30px -4px rgba(34, 211, 238, 0.12);
-  border-color: rgba(34, 211, 238, 0.4);
+/* Premium ambient glows */
+.ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.dark .ambient-glow {
+  opacity: 0.22;
+}
+
+/* Premium glass card */
+.glass-panel {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 12px 36px -8px rgba(34, 211, 238, 0.12);
+}
+
+/* Interactive card hover */
+.interactive-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px -12px rgba(34, 211, 238, 0.15);
 }
 
 /* Blinking cursor */
-@keyframes blink {
+@keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
 .cursor-blink {
-  animation: blink 1s infinite;
+  animation: cursorBlink 1.06s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Subtle gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan-violet {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -103,7 +159,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

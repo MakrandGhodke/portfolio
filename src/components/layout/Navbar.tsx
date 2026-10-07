@@ -3,40 +3,51 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { FileDown, Menu, X, Terminal } from "lucide-react";
+import { FileDown, Menu, X, Sparkles } from "lucide-react";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Projects", href: "/#projects" },
-    { name: "About", href: "/#about" },
+    { name: "Now Building", href: "/#now-building" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Contact", href: "/#contact" },
     { name: "Changelog", href: "/changelog" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors duration-200">
+    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/80 backdrop-blur-xl transition-colors duration-200">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Monogram / Brand */}
         <Link
           href="/"
           className="flex items-center gap-2.5 font-mono text-sm tracking-tight text-text hover:text-accent transition-colors group"
         >
-          <div className="w-8 h-8 rounded border border-border bg-surface flex items-center justify-center font-bold text-xs text-accent group-hover:border-accent transition-colors shadow-sm">
-            <Terminal className="w-4 h-4 text-accent" />
+          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg border border-border bg-surface shadow-xs group-hover:border-accent/80 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.25)] transition-all">
+            <span className="font-bold text-xs text-text group-hover:text-accent transition-colors">
+              MG
+            </span>
+            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-accent/80 ring-2 ring-background" />
           </div>
-          <span className="font-semibold tracking-wider">
-            makrand<span className="text-accent">.</span>dev
-          </span>
+          <div className="flex flex-col">
+            <span className="font-semibold text-xs tracking-wider">
+              makrand<span className="text-accent">.</span>ghodke
+            </span>
+            <span className="text-[10px] text-muted tracking-normal font-mono">
+              tu darmstadt // ai
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-xs font-mono">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-muted hover:text-text hover:text-accent transition-colors duration-150 py-1"
+              className="text-muted hover:text-text hover:text-accent transition-colors duration-150 py-1 tracking-tight"
             >
               {link.name}
             </Link>
@@ -49,7 +60,7 @@ export function Navbar() {
             href="/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-accent/40 bg-accent/10 text-accent hover:bg-accent/20 hover:border-accent transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-lg border border-accent/40 bg-accent/10 text-accent hover:bg-accent/20 hover:border-accent hover:shadow-[0_0_16px_rgba(34,211,238,0.2)] transition-all duration-200"
           >
             <FileDown className="w-3.5 h-3.5" />
             <span>CV.pdf</span>
@@ -65,7 +76,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-md border border-border text-muted hover:text-text hover:border-accent transition-colors"
+            className="p-2 rounded-lg border border-border text-muted hover:text-text hover:border-accent transition-colors cursor-pointer"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -75,13 +86,13 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-surface/95 backdrop-blur-lg px-4 py-4 space-y-3">
+        <div className="md:hidden border-b border-border bg-surface/95 backdrop-blur-2xl px-4 py-4 space-y-2 animate-in slide-in-from-top-2 duration-200">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-base py-2 text-text hover:text-accent font-medium transition-colors"
+              className="block text-sm font-mono py-2 text-text hover:text-accent transition-colors"
             >
               {link.name}
             </Link>
@@ -92,7 +103,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-mono font-medium rounded-md border border-accent/40 bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-mono font-medium rounded-lg border border-accent/40 bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
             >
               <FileDown className="w-4 h-4" />
               <span>Download CV (PDF)</span>
