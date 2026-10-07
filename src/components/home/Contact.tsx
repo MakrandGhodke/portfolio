@@ -51,8 +51,13 @@ export function Contact() {
 
       <div className="rounded-2xl border border-border bg-surface/75 backdrop-blur-xl p-6 sm:p-10 space-y-8 relative overflow-hidden">
         {/* Subtle ambient light */}
+        {/* Subtle ambient light using pure radial gradient */}
         <div
-          className="ambient-glow -top-10 -right-10 w-[300px] h-[300px] bg-accent/15"
+          className="pointer-events-none absolute -top-10 -right-10 w-[260px] h-[260px] rounded-full -z-10"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(34, 211, 238, 0.12) 0%, rgba(34, 211, 238, 0) 70%)",
+          }}
           aria-hidden="true"
         />
 
@@ -68,14 +73,14 @@ export function Contact() {
         {/* Email Copy Card */}
         <div className="relative z-10 rounded-xl border border-border bg-surface-raised p-4 sm:p-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg border border-accent/40 bg-accent/10 flex items-center justify-center text-accent">
+            <div className="w-10 h-10 rounded-lg border border-accent/40 bg-accent/10 flex items-center justify-center text-accent shrink-0">
               <Mail className="w-5 h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-[11px] text-muted uppercase">Direct Email</p>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="font-mono text-sm sm:text-base font-semibold text-text hover:text-accent transition-colors"
+                className="font-mono text-xs sm:text-sm md:text-base font-semibold text-text hover:text-accent transition-colors break-all"
               >
                 {siteConfig.contact.email}
               </a>
