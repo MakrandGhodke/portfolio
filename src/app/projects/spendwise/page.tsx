@@ -23,7 +23,7 @@ import {
 export const metadata = {
   title: "SpendWise Case Study | Makrand Ghodke",
   description:
-    "Household finance tracker installable as a PWA. Multi-tenant PostgreSQL schema with Row Level Security, Next.js API routes, and OCR receipt ingestion.",
+    "Household finance tracker installable as a PWA. Multi-tenant PostgreSQL schema with Row Level Security, Next.js API routes, and 6-month spending analytics.",
 };
 
 export default function SpendWisePage() {
@@ -162,11 +162,11 @@ export default function SpendWisePage() {
                     <span className="text-text">Rewe City Market</span>
                     <span className="text-accent font-bold">-€ 34.20</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400">OCR Ingested</span>
+                  <span className="text-[10px] text-emerald-400">Groceries • Card</span>
                 </div>
 
                 <div className="rounded-lg border border-accent/40 bg-accent/10 p-2 text-center text-accent text-[11px] font-semibold">
-                  + Add Receipt via Camera
+                  + New Transaction
                 </div>
               </div>
             </DeviceFrame>

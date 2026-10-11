@@ -185,14 +185,14 @@ export const projects: ProjectData[] = [
     },
     highlights: [
       "6-month interactive analytics dashboard with spending velocity graphs.",
-      "OCR-based receipt ingestion parsing totals, date, and vendor details.",
+      "Fast transaction CRUD with server-side filtering, sorting, and pagination.",
       "Installable Progressive Web App (PWA) tested on iOS Safari and Android Chrome.",
       "Edge-deployed on Vercel with serverless data fetching and optimized caching.",
       "Zero telemetry trackers or third-party ad SDKs.",
     ],
     improvements: [
-      "Optimizing OCR latency with an on-device WebAssembly parser",
-      "Custom recurring expense categorization rules engine",
+      "Recurring expense scheduling and automated rule categorization",
+      "Budget threshold push notifications for monthly limits",
       "Multi-currency exchange rate sync via European Central Bank API",
     ],
   },

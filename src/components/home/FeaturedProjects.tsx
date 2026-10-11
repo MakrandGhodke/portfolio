@@ -122,7 +122,7 @@ export function FeaturedProjects() {
                   <p className="text-muted leading-relaxed">
                     {project.slug === "digiguide"
                       ? "Resolved 30% → 100% classification accuracy on 5 baseline classes by fixing RGB channel conversions before CLIP. 512-dim FAISS IndexFlatL2 matching with similarity ≥ 0.85."
-                      : "Multi-tenant PostgreSQL schema protected by Supabase Row Level Security (RLS) policies. Installable PWA with OCR-based automated receipt ingestion."}
+                      : "Multi-tenant PostgreSQL schema protected by Supabase Row Level Security (RLS) policies. Installable PWA with fast transaction CRUD and 6-month spending analytics."}
                   </p>
                 </div>
 
@@ -211,13 +211,13 @@ export function FeaturedProjects() {
                     </div>
 
                     <div className="p-3 rounded-lg bg-surface border border-border space-y-1.5">
-                      <div className="text-[11px] text-muted">Receipt Pipeline:</div>
+                      <div className="text-[11px] text-muted">Transaction Engine:</div>
                       <div className="flex items-center justify-between">
-                        <span className="text-text font-bold">OCR Ingestion</span>
+                        <span className="text-text font-bold">CRUD API Routes</span>
                         <span className="text-[10px] text-accent">PWA Native</span>
                       </div>
                       <p className="text-[10px] text-muted">
-                        Automated amount, date & merchant detection
+                        Server-side filtering, sorting & pagination
                       </p>
                     </div>
 

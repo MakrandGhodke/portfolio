@@ -46,7 +46,7 @@ export const changelogEntries: ChangelogEntry[] = [
     projectSlug: "spendwise",
     title: "Row Level Security (RLS) policies & Supabase Auth integration",
     summary:
-      "Implemented multi-tenant tenant isolation in PostgreSQL using Supabase RLS. Enforced strict user-level access across all transaction, budget, and receipt storage tables.",
+      "Implemented multi-tenant tenant isolation in PostgreSQL using Supabase RLS. Enforced strict user-level access across all transaction, budget, and category tables.",
     tags: ["PostgreSQL", "Supabase", "Security", "Auth"],
   },
   {

@@ -64,7 +64,7 @@ export function ArchitectureDiagram() {
           </div>
         </div>
 
-        {/* Layer 2: API & OCR */}
+        {/* Layer 2: API & Data Engine */}
         <div
           onClick={() => setSelectedLayer("api")}
           className={`rounded-xl border p-5 space-y-3 cursor-pointer transition-all ${
@@ -78,9 +78,9 @@ export function ArchitectureDiagram() {
             <Server className="w-4 h-4 text-accent" />
           </div>
 
-          <h4 className="font-bold text-base text-text">Next.js API & OCR</h4>
+          <h4 className="font-bold text-base text-text">Next.js API Routes</h4>
           <p className="text-xs text-muted leading-relaxed">
-            REST routes for transactions (filter, sort, pagination). Dedicated OCR pipeline parsing receipt amounts, merchants, and dates.
+            REST routes for transactions with server-side filtering, sorting, cursor pagination, and real-time category aggregation.
           </p>
 
           <div className="pt-2 font-mono text-[11px] text-accent flex items-center gap-1">
@@ -136,9 +136,9 @@ WITH CHECK (auth.uid() = user_id);`}
 
         {selectedLayer === "api" && (
           <div className="space-y-1.5 pt-1 text-muted">
-            <p className="text-text font-semibold">Server-Side Endpoints & OCR Ingestion:</p>
-            <p>• <code className="text-accent">GET /api/transactions</code>: Server-side cursor pagination, date range slicing, category breakdown.</p>
-            <p>• <code className="text-accent">POST /api/ocr-scan</code>: Receives camera capture of paper receipt, extracts bounding boxes for date, total amount, and merchant name.</p>
+            <p className="text-text font-semibold">Server-Side Endpoints & Data Engine:</p>
+            <p>• <code className="text-accent">GET /api/transactions</code>: Server-side cursor pagination, date range slicing, and monthly category breakdown.</p>
+            <p>• <code className="text-accent">POST /api/transactions</code>: Validates transaction payload, handles structured expense categorization, and triggers optimistic client update.</p>
           </div>
         )}
 
