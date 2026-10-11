@@ -136,17 +136,18 @@ WITH CHECK (auth.uid() = user_id);`}
 
         {selectedLayer === "api" && (
           <div className="space-y-1.5 pt-1 text-muted">
-            <p className="text-text font-semibold">Server-Side Endpoints & Data Engine:</p>
+            <p className="text-text font-semibold">Server-Side Endpoints & Ledger Engine:</p>
+            <p>• <code className="text-accent">POST /api/import-csv</code>: Ingests bank CSVs (Revolut, N26, Sparkasse, Deutsche Bank) with auto-format detection & hash duplicate checks.</p>
             <p>• <code className="text-accent">GET /api/transactions</code>: Server-side cursor pagination, date range slicing, and monthly category breakdown.</p>
-            <p>• <code className="text-accent">POST /api/transactions</code>: Validates transaction payload, handles structured expense categorization, and triggers optimistic client update.</p>
+            <p>• <code className="text-accent">SQL Stored Procedures</code>: Atomic balance updates executed directly in PostgreSQL to ensure ledger consistency.</p>
           </div>
         )}
 
         {selectedLayer === "client" && (
           <div className="space-y-1.5 pt-1 text-muted">
-            <p className="text-text font-semibold">Progressive Web App Shell:</p>
-            <p>• Manifest configured with standalone display mode, dynamic maskable app icons, and offline fallback.</p>
-            <p>• Fast optimistic updates on transaction additions for zero perceived latency.</p>
+            <p className="text-text font-semibold">Progressive Web App Shell & Offline Sync:</p>
+            <p>• Offline-first architecture: changes saved locally in IndexedDB and synchronized automatically upon reconnect.</p>
+            <p>• PWA standalone manifest + iOS package built with Capacitor; deployed on Vercel Edge with a 6-month trend dashboard.</p>
           </div>
         )}
       </div>

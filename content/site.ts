@@ -65,7 +65,7 @@ export const skillCategories: SkillCategory[] = [
       "CLIP",
       "FAISS",
       "Computer Vision",
-      "Vector Embeddings",
+      "Model Evaluation",
       "Scikit-learn",
       "Pandas",
       "NumPy",
@@ -77,19 +77,19 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Backend",
-    skills: ["FastAPI", "Node.js", "Express", "REST", "Docker (familiar)"],
+    skills: ["FastAPI", "REST APIs", "Node.js", "Docker (familiar)", "pytest", "Render"],
   },
   {
     category: "Frontend / Mobile",
-    skills: ["Next.js", "React", "Flutter/Dart", "Tailwind"],
+    skills: ["Next.js", "React", "Flutter/Dart", "Tailwind CSS"],
   },
   {
     category: "Data",
-    skills: ["PostgreSQL", "MySQL", "Supabase", "SQLite"],
+    skills: ["PostgreSQL (Supabase)", "SQL", "MySQL", "SQLite"],
   },
   {
     category: "Tools",
-    skills: ["Git", "Jupyter", "Vercel", "Agile/Scrum"],
+    skills: ["GitHub Actions (CI)", "Git", "GitHub", "Jupyter", "Vercel", "Agile/Scrum"],
   },
 ];
 
@@ -108,16 +108,16 @@ export const timelineItems: TimelineItem[] = [
     type: "education",
     title: "M.Sc. Information & Communication Engineering",
     organization: "TU Darmstadt",
-    period: "Oct 2024 – present",
+    period: "Oct 2024 – expected autumn 2027",
     location: "Darmstadt, Germany",
-    description: "Courses: Introduction to AI, Data Science 1 & 2, Explainable and Ethical AI",
+    description: "Focus: AI and machine learning. Courses: Introduction to AI, Data Science 1 & 2, Explainable and Ethical AI.",
     badge: "Current",
   },
   {
     type: "education",
     title: "B.Tech Electronics & Telecommunication",
     organization: "Bharati Vidyapeeth Deemed University",
-    period: "2020 – 2023",
+    period: "Nov 2020 – Jul 2023",
     location: "Pune, India",
     description: "CGPA 9.06 / 10. Graduated with First Class with Distinction.",
   },
@@ -126,14 +126,14 @@ export const timelineItems: TimelineItem[] = [
     title: "Web Developer Intern",
     organization: "Exposys Data Labs",
     period: "Jul – Aug 2022",
-    description: "Developed and maintained responsive web applications and frontend user workflows.",
+    description: "Built and tested responsive web pages (HTML, CSS, JavaScript) across Chrome, Firefox, Safari, and Edge in an Agile team of five.",
   },
   {
     type: "experience",
     title: "Operations Support Technician",
     organization: "Flextronics Technologies",
     period: "Jul – Dec 2021",
-    description: "Monitored operational support tickets, handled technical diagnostics, and assisted system maintenance.",
+    description: "Redesigned production Excel data reporting tools, decreasing manual entry errors and establishing unified team metrics.",
   },
 ];
 

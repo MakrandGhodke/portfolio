@@ -181,14 +181,14 @@ export const projects: ProjectData[] = [
       problem:
         "Household budgeting apps are either bloated with unnecessary upsells or lack privacy. I needed a responsive system that is quick to use, supports shared household insights, and guarantees strict per-user data isolation.",
       architecture:
-        "Multi-tenant PostgreSQL schema with Row Level Security (RLS) for per-user data isolation, Supabase Auth for session tokens, and Next.js App Router API endpoints for transaction CRUD with filtering, sorting, and pagination.",
+        "Multi-tenant PostgreSQL schema with Row Level Security (RLS) for per-user data isolation, Supabase Auth session tokens, and SQL stored procedures for consistent balance calculation. Imports bank CSV statements with automatic format detection and category rules.",
     },
     highlights: [
-      "6-month interactive analytics dashboard with spending velocity graphs.",
-      "Fast transaction CRUD with server-side filtering, sorting, and pagination.",
-      "Installable Progressive Web App (PWA) tested on iOS Safari and Android Chrome.",
-      "Edge-deployed on Vercel with serverless data fetching and optimized caching.",
-      "Zero telemetry trackers or third-party ad SDKs.",
+      "Bank CSV statement import pipeline (Revolut, N26, Sparkasse, Deutsche Bank) with automatic format detection and hash-based duplicate prevention.",
+      "SQL stored procedures executing balance calculations atomically to maintain ledger consistency.",
+      "Offline-first local persistence with automatic data sync upon reconnect.",
+      "Installable Progressive Web App (PWA), iOS package with Capacitor, and 6-month trend dashboard.",
+      "Multi-tenant PostgreSQL schema strictly isolated per user via Supabase Row Level Security.",
     ],
     improvements: [
       "Recurring expense scheduling and automated rule categorization",
